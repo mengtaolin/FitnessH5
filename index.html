@@ -7,30 +7,47 @@
 		<title></title>
 		<script src="js/mui.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
-			function cancle(e){
-				window.location.href = "http://www.baidu.com";
+
+			function playMusic(e) {
+				alert("hello");
+			}
+			
+			function addItem(e){
+				var li = document.createElement("li");
+				li.setAttribute("class", "mui-table-view");
+				var img = document.createElement("img");
+				img.setAttribute("class", "mui-media-object mui-pull-left");
+				img.setAttribute("src", "http://placehold.it/40x30");
+				li.appendChild(img);
+				var div = document.createElement("div");
+				div.setAttribute("class", "mui-media-body");
+				div.innerHTML = "幸福";
+				var p = document.createElement("p");
+				p.setAttribute("class", "mui-ellipsis");
+				p.innerHTML = "能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？";
+				div.appendChild(p);
+				var span = document.createElement("span");
+				span.setAttribute("class", "mui-icon iconfont icon-swticonyinle3");
+				span.setAttribute("onclick", "playMusic(event)");
+				div.appendChild(span);
+				
+				li.appendChild(div);
+				var ul = document.getElementById("musicList");
+				ul.appendChild(li);
 			}
 		</script>
 
 	</head>
-	
+
 	<body>
-		<form class="mui-input-group">
-			<div class="mui-input-row">
-				<label>用户名</label>
-				<input type="text" class="mui-input-clear" placeholder="请输入用户名">
-			</div>
-			<div class="mui-input-row">
-				<label>密码</label>
-				<input type="password" class="mui-input-password" placeholder="请输入密码">
-			</div>
-			<div class="mui-button-row">
-				<button type="button" class="mui-btn mui-btn-primary">确认</button>
-				<button type="button" class="mui-btn mui-btn-danger" onclick="cancle(event)">取消</button>
-			</div>
-		</form>
+		<div class="mui-content">
+			<ul id="musicList" class="mui-table-view">
+			</ul>
+			<button type="button" class="mui-btn mui-btn-blue" onclick="addItem(event)">按钮</button>
+		</div>
 	</body>
 
 </html>
