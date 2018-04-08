@@ -30,6 +30,18 @@
 	}
 	
 	app.addItem = function(e){
+		var mainUl = document.getElementById("musicList");
+		mainUl.innerHTML = "<ul class='mui-table-view' id="+ itemList.length + ">" + 
+					"<li class='mui-table-view-cell mui-media'>" + 
+						"<a href='javascript:;'>" + 
+							"<img class='mui-media-object mui-pull-left' src='" + "http://placehold.it/40x30" + "'>" +
+							"<div class='mui-media-body'>" + 
+								+ "幸福" + 
+								"<p class='mui-ellipsis'>" + "能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？" + 
+								"</p></div></a></li></ul>";
+		var item = document.getElementById(itemList.length);
+		itemList.push(item);
+		
 		var ul = app.createElement("ul",{"class":"mui-table-view", "id":itemList.length},"")
 		var li = app.createElement("li", {"class":"mui-table-view-cell mui-media", "onclick": "app.onItemClick(event)"}, "");
 		var a = app.createElement("a", {}, "");
@@ -39,7 +51,6 @@
 		var p = app.createElement("p", {"class":"mui-ellipsis"}, "能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？");
 		div.appendChild(p);
 		var btnsDiv = app.createElement("div", {"class":"mui-button-row mui-pull-left"}, "")
-//		var musicSpan = app.createElement("div", {"class":"mui-icon iconfont icon-14", "onclick":"app.test(null)", "ftype":"1"}, "");
 		var preSongDiv = app.createElement("div", {"class":"mui-icon iconfont icon-shangyishou", "onclick":"app.preSong(event)", "ftype":"1"}, "");
 		var playSongDiv = app.createElement("div", {"class":"mui-icon iconfont icon-bofanganniu", "onclick":"app.playSong(event)", "ftype":"1", "isPlay":false}, "");
 		var nextSongDic = app.createElement("div", {"class":"mui-icon iconfont icon-xiayishou", "onclick":"app.nextSong(event)", "ftype":"1"}, "");
@@ -49,7 +60,6 @@
 		div.appendChild(btnsDiv);
 		a.appendChild(div);
 		li.appendChild(a);
-		var mainUl = document.getElementById("musicList");
 		ul.appendChild(li);
 		mainUl.appendChild(ul);
 		
