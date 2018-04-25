@@ -11,6 +11,9 @@
 		<link href="css/iconfont.css" rel="stylesheet" />
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
+			mui.ready(function(){
+				app.init();
+			})
 		</script>
 
 	</head>
@@ -18,20 +21,13 @@
 	<body>
 		<div class="mui-content">
 			<ul id="musicList" class="mui-table-view">
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell mui-media">
-						<a href="javascript:;">
-							<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
-							<div class="mui-media-body">
-								幸福
-								<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-							</div>
-						</a>
-					</li>
-				</ul>
 			</ul>
 			<button type="button" class="mui-btn mui-btn-blue" onclick="app.addItem(event)">按钮</button>
 		</div>
 	</body>
-
+		<!--"<div class='mui-button-row mui-pull-left'>" + 
+									"<div class='mui-icon iconfont icon-shangyishou' onclick='app.preSong(event)' ftype='1'></div>" + 
+									"<div class='mui-icon iconfont icon-bofanganniu' onclick='app.playSong(event)' ftype='2'></div>" +
+									"<div class='mui-icon iconfont icon-xiayishou' onclick='app.nextSong(event)' ftype='3'></div>" +
+								"</div>-->
 </html>
